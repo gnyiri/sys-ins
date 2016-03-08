@@ -8,6 +8,8 @@ TEMPLATE = app
 
 TARGET = sys-ins
 
+INCLUDEPATH = ../src
+
 SOURCES += main.cpp
 
 LIBS += -L../src -lsys-ins
