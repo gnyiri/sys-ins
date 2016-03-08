@@ -5,6 +5,8 @@
 #include <fstream>
 #include <sstream>
 
+#include <QDebug>
+
 //--------------------------------------------------
 proc_parser::proc_parser(const int p_pid) :
   m_pid(p_pid)
@@ -24,6 +26,15 @@ T proc_parser::parse_section(const std::string& p_section)
   l_pid_file_path << std::string("/proc/") << m_pid;
 
   std::ifstream l_file;
-  l_file.open("/proc/");
+  l_file.open(l_pid_file_path.str().c_str(), std::ios::in);
+
+  if (!l_file.is_open())
+  {
+    throw sys_exception("Could not open process info file");
+  }
+
+
+
+  l_file.close();
 }
 
