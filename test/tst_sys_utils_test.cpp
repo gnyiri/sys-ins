@@ -11,16 +11,16 @@ public:
   sys_utils_test();
 
 private Q_SLOTS:
-  void testCase1();
+  void test_process_ids();
 };
-
+//--------------------------------------------------------------
 sys_utils_test::sys_utils_test()
 {
 }
-
-void sys_utils_test::testCase1()
+//--------------------------------------------------------------
+void sys_utils_test::test_process_ids()
 {
-  QVERIFY2(true, "Failure");
+  QVERIFY(false == sys_utils::get_instance().get_process_ids().empty());
 }
 
 QTEST_APPLESS_MAIN(sys_utils_test)
