@@ -2,8 +2,10 @@
 #include "ui_main_window.h"
 
 #include "sys_utils.h"
-
+#include "proc_parser.h"
 #include <sstream>
+
+#include <QDebug>
 
 //--------------------------------------------------
 main_window::main_window(QWidget *parent) :
@@ -11,13 +13,8 @@ main_window::main_window(QWidget *parent) :
     ui(new Ui::main_window)
 {
   ui->setupUi(this);
-
   m_process_id_model = new QStringListModel(this);
-
   ui->m_process_view->setModel(m_process_id_model);
-
-  m_process_id_model->setStringList(m_process_id_list);
-
   update_process_id_model();
 }
 //--------------------------------------------------
@@ -40,4 +37,17 @@ void main_window::update_process_id_model()
   }
 
   m_process_id_model->setStringList(m_process_id_list);
+}
+//--------------------------------------------------
+void main_window::on_m_process_view_clicked(const QModelIndex &index)
+{
+  QString l_pid_str = m_process_id_list.at(index.row());
+
+  int l_pid = l_pid_str.toInt();
+
+  proc_parser l_proc_parser(l_pid);
+
+  QString l_proc_details = l_proc_parser.to_string().c_str();
+
+  ui->m_process_details->setText(l_proc_details);
 }

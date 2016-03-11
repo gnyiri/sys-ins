@@ -69,7 +69,11 @@ public:
 
     return 0;
   }
-
+  /*!
+   * \brief to_string
+   * \return
+   */
+  std::string to_string() const;
 private:
   /*!
    * \brief m_pid
