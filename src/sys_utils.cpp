@@ -38,6 +38,8 @@ std::vector<int>& sys_utils::get_process_ids()
   if(0 == l_file_tree)
   {
     throw sys_exception("Could not open path");
+
+    return m_process_ids;
   }
 
   FTSENT* l_node = 0;
@@ -46,11 +48,17 @@ std::vector<int>& sys_utils::get_process_ids()
   {
     if ((l_node->fts_info & FTS_D) && (l_node->fts_level == 1))
     {
-      qDebug() << l_node->fts_name;
+      //qDebug() << l_node->fts_name;
 
       int l_process_id = 0;
       std::stringstream l_stream(l_node->fts_name);
       l_stream >> l_process_id;
+
+      if (l_stream.fail())
+      {
+        continue;
+      }
+
       m_process_ids.push_back(l_process_id);
     }
   }
@@ -58,6 +66,8 @@ std::vector<int>& sys_utils::get_process_ids()
   if(fts_close(l_file_tree))
   {
     throw sys_exception("Could not close file");
+
+    return m_process_ids;
   }
 
   return m_process_ids;
@@ -70,7 +80,10 @@ proc_info sys_utils::get_process_info(const int p_pid)
   if (p_pid <= 0)
   {
     throw sys_exception("Invalid process id");
+    return l_proc_info;
   }
 
   l_proc_info.m_pid = p_pid;
+
+  return l_proc_info;
 }

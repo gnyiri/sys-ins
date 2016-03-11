@@ -11,17 +11,30 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>main_window</string>
+   <string>System Inspector</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QListView" name="m_process_view">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
-      <width>91</width>
-      <height>231</height>
+      <y>20</y>
+      <width>61</width>
+      <height>221</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Process ID-s</string>
     </property>
    </widget>
   </widget>
