@@ -60,7 +60,7 @@
      <string>Process info</string>
     </property>
    </widget>
-   <widget class="QOpenGLWidget" name="openGLWidget">
+   <widget class="GraphView" name="m_graph_view">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -92,6 +92,13 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GraphView</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">graphview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
