@@ -18,7 +18,7 @@ public:
   }
 
 private Q_SLOTS:
-  void test();
+  void test_process_id_list();
 };
 /*!
  * \brief The proc_parser_test class
@@ -33,16 +33,23 @@ public:
   }
 
 private Q_SLOTS:
-  void test();
+  void test_parse_section();
 };
 
 //--------------------------------------------------------------
-void sys_utils_test::test()
+void sys_utils_test::test_process_id_list()
 {
-  QVERIFY(false == sys_utils::get_instance().get_process_ids().empty());
+  std::vector<int> l_process_ids = sys_utils::get_instance().get_process_ids();
+
+  QCOMPARE(false, l_process_ids.empty());
+
+  for (std::vector<int>::const_iterator l_pid = l_process_ids.begin(); l_pid != l_process_ids.end(); l_pid++)
+  {
+    QVERIFY(*l_pid > 0);
+  }
 }
 //--------------------------------------------------------------
-void proc_parser_test::test()
+void proc_parser_test::test_parse_section()
 {
   std::vector<int> l_process_ids = sys_utils::get_instance().get_process_ids();
 

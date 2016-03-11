@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>688</width>
-    <height>348</height>
+    <width>571</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
      <rect>
       <x>120</x>
       <y>20</y>
-      <width>256</width>
+      <width>441</width>
       <height>221</height>
      </rect>
     </property>
@@ -60,13 +60,23 @@
      <string>Process info</string>
     </property>
    </widget>
+   <widget class="QOpenGLWidget" name="openGLWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>551</width>
+      <height>200</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>688</width>
+     <width>571</width>
      <height>23</height>
     </rect>
    </property>
