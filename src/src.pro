@@ -7,11 +7,13 @@ TEMPLATE = lib
 
 SOURCES += main_window.cpp \
            sys_utils.cpp \
-    proc_parser.cpp
+    proc_parser.cpp \
+    glgraphview.cpp
 
 HEADERS  += main_window.h \
             sys_utils.h \
     proc_parser.h \
-    utils.h
+    utils.h \
+    glgraphview.h
 
 FORMS    += ../ui/main_window.ui

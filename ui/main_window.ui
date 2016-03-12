@@ -60,7 +60,7 @@
      <string>Process info</string>
     </property>
    </widget>
-   <widget class="GraphView" name="m_graph_view">
+   <widget class="glgraphview" name="m_graph_view">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -94,9 +94,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>GraphView</class>
+   <class>glgraphview</class>
    <extends>QOpenGLWidget</extends>
-   <header location="global">graphview.h</header>
+   <header>glgraphview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
