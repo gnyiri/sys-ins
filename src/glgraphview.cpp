@@ -126,7 +126,7 @@ void glgraphview::initializeGL()
   // get location of lightPos in the shader
   m_lightPosLoc = m_program->uniformLocation("lightPos");
 
-  m_vertices.push_back(0.1);
+  m_vertices.push_back(-1.0);
   m_vertices.push_back(0.0);
   m_vertices.push_back(0.5);
 
@@ -135,7 +135,7 @@ void glgraphview::initializeGL()
   m_vertices.push_back(1.0);
 
   m_vertices.push_back(1.0);
-  m_vertices.push_back(0.5);
+  m_vertices.push_back(0.0);
   m_vertices.push_back(0.5);
 
   m_vertices.push_back(0.0);
@@ -188,5 +188,6 @@ void glgraphview::paintGL()
 void glgraphview::resizeGL(int w, int h)
 {
   m_proj.setToIdentity();
-  m_proj.perspective(45.0f, GLfloat(w) / h, 0.01f, 100.0f);
+  //m_proj.perspective(45.0f, GLfloat(w) / h, 0.01f, 100.0f);
+  m_proj.ortho(-1.0, 1.0, -1.0, 1.0, -4.0, 4.0);
 }
