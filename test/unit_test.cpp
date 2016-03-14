@@ -57,7 +57,7 @@ void sys_utils_test::test_process_id_list()
 {
   std::vector<int> l_process_ids = sys_utils::get_instance().get_process_ids();
 
-  QCOMPARE(false, l_process_ids.empty());
+  QCOMPARE(l_process_ids.empty(), false);
 
   for (std::vector<int>::const_iterator l_pid = l_process_ids.begin(); l_pid != l_process_ids.end(); l_pid++)
   {
@@ -107,6 +107,25 @@ void proc_parser_test::test_parse_section()
 void time_series_test::test_time_series()
 {
   time_series l_time_series(200);
+
+  for (int l_i = 0; l_i < 200; l_i++)
+  {
+    QCOMPARE(l_time_series.get(l_i), 0u);
+  }
+
+  for (int l_i = 0; l_i < 200; l_i++)
+  {
+    l_time_series.add(1u + l_i);
+  }
+
+  QCOMPARE(l_time_series.get(0), 1u);
+  QCOMPARE(l_time_series.get(1), 2u);
+  QCOMPARE(l_time_series.get(199), 200u);
+
+  l_time_series.add(201u);
+
+  QCOMPARE(l_time_series.get(0), 2u);
+  QCOMPARE(l_time_series.get(199), 201u);
 }
 //--------------------------------------------------------------
 int main(int argc, char** argv)

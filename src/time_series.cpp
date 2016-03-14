@@ -11,7 +11,8 @@ time_series::time_series() :
 }
 //--------------------------------------------------
 time_series::time_series(const unsigned int p_size) :
-  m_size(p_size)
+  m_size(p_size),
+  m_position(0u)
 {
   if (0 == m_size)
   {
