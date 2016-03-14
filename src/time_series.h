@@ -26,6 +26,17 @@ public:
    * \param p_time_data
    */
   void add(const unsigned int p_time_data);
+  /*!
+   * \brief get
+   * \param p_index
+   * \return
+   */
+  unsigned int get(const unsigned int p_index) const;
+  /*!
+   * \brief get size
+   * \return size
+   */
+  unsigned int get_size() const;
 private:
   /*!
    * \brief m_size

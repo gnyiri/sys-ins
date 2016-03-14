@@ -8,7 +8,7 @@ QT       += testlib core
 
 QT       -= gui
 
-TARGET = tst_sys_utils_test
+TARGET = unit_test
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -17,5 +17,8 @@ TEMPLATE = app
 INCLUDEPATH = ../src
 LIBS += -L../src -lsys-ins
 
-SOURCES += tst_sys_utils_test.cpp
+SOURCES += \
+    unit_test.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
+
+HEADERS +=

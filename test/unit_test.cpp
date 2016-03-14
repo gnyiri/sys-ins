@@ -4,6 +4,7 @@
 
 #include "sys_utils.h"
 #include "proc_parser.h"
+#include "time_series.h"
 
 /*!
  * \brief The sys_utils_test class
@@ -34,6 +35,21 @@ public:
 
 private Q_SLOTS:
   void test_parse_section();
+};
+/*!
+ * \brief The time_series class
+ */
+class time_series_test : public QObject
+{
+  Q_OBJECT
+
+public:
+  time_series_test()
+  {
+  }
+
+private Q_SLOTS:
+  void test_time_series();
 };
 
 //--------------------------------------------------------------
@@ -88,6 +104,11 @@ void proc_parser_test::test_parse_section()
   }
 }
 //--------------------------------------------------------------
+void time_series_test::test_time_series()
+{
+  time_series l_time_series(200);
+}
+//--------------------------------------------------------------
 int main(int argc, char** argv)
 {
   int status = 0;
@@ -99,6 +120,11 @@ int main(int argc, char** argv)
 
   {
     proc_parser_test l_test;
+    status |= QTest::qExec(&l_test, argc, argv);
+  }
+
+  {
+    time_series_test l_test;
     status |= QTest::qExec(&l_test, argc, argv);
   }
 

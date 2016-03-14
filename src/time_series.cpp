@@ -26,6 +26,11 @@ time_series::~time_series()
   m_data.clear();
 }
 //--------------------------------------------------
+unsigned int time_series::get_size() const
+{
+  return m_data.size();
+}
+//--------------------------------------------------
 void time_series::add(const unsigned int p_time_data)
 {
   if (m_size != m_data.size())
@@ -35,8 +40,7 @@ void time_series::add(const unsigned int p_time_data)
 
   if (m_position < m_size)
   {
-    m_data[m_position] = p_time_data;
-    m_position++;
+    m_data[m_position++] = p_time_data;
   }
   else
   {
@@ -47,5 +51,15 @@ void time_series::add(const unsigned int p_time_data)
 
     m_data[m_data.size() - 1] = p_time_data;
   }
+}
+//--------------------------------------------------
+unsigned int time_series::get(const unsigned int p_index) const
+{
+  if (p_index >= m_data.size())
+  {
+    throw sys_exception("Wrong index!");
+  }
+
+  return m_data[p_index];
 }
 
