@@ -21,3 +21,9 @@ HEADERS  += main_window.h \
     time_series_renderer.h
 
 FORMS    += ../ui/main_window.ui
+
+RESOURCES += \
+    resources.qrc
+
+DISTFILES += \
+    fragment_shader.frag

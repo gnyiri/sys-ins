@@ -37,6 +37,21 @@ public:
    * \return size
    */
   unsigned int get_size() const;
+  /*!
+   * \brief get_min
+   * \return max
+   */
+  unsigned int get_min() const;
+  /*!
+   * \brief get_max
+   * \return max
+   */
+  unsigned int get_max() const;
+  /*!
+   * \brief get_avg
+   * \return
+   */
+  unsigned int get_avg() const;
 private:
   /*!
    * \brief m_size
@@ -46,6 +61,18 @@ private:
    * \brief m_position
    */
   unsigned int m_position;
+  /*!
+   * \brief m_max
+   */
+  unsigned int m_min;
+  /*!
+   * \brief m_min
+   */
+  unsigned int m_max;
+  /*!
+   * \brief m_sum
+   */
+  unsigned long m_sum;
   /*!
    * \brief m_data
    */

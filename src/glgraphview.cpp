@@ -106,9 +106,9 @@ void glgraphview::initializeGL()
 
   m_program = new QOpenGLShaderProgram;
   // set vertex shader code
-  m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, m_core ? vertexShaderSourceCore : vertexShaderSource);
+  m_program->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/vertex_shader.vsh");
   // set fragment shader code
-  m_program->addShaderFromSourceCode(QOpenGLShader::Fragment, m_core ? fragmentShaderSourceCore : fragmentShaderSource);
+  m_program->addShaderFromSourceFile(QOpenGLShader::Fragment, ":/fragment_shader.frag");
   // vertex is on the 0th location
   m_program->bindAttributeLocation("vertex", 0);
   // normal is on the 1st location
