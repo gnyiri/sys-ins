@@ -52,6 +52,11 @@ public:
    * \return
    */
   unsigned int get_avg() const;
+  /*!
+   * \brief get_buff
+   * \return
+   */
+  void* get_buff();
 private:
   /*!
    * \brief m_size

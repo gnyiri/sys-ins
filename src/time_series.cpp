@@ -88,5 +88,10 @@ unsigned int time_series::get_avg() const
 {
   return static_cast<unsigned int>(m_sum / static_cast<float>(m_data.size()) + 0.5f);
 }
+//--------------------------------------------------
+void* time_series::get_buff()
+{
+  return static_cast<void*>(m_data.data());
+}
 
 
