@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>../src/vertex_shader.vsh</file>
-    </qresource>
-</RCC>
