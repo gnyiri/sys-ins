@@ -9,6 +9,8 @@
 
 #include <vector>
 
+#include "time_series_renderer.h"
+
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
 /*!
@@ -106,9 +108,9 @@ private:
    */
   QMatrix4x4 m_world;
   /*!
-   * \brief m_vertices
+   * \brief m_time_series_renderer
    */
-  std::vector<GLfloat> m_vertices;
+  time_series_renderer m_time_series_renderer;
 };
 
 #endif // GLGRAPHVIEW_H

@@ -15,6 +15,10 @@ public:
   /*!
    * \brief time_series_renderer
    */
+  time_series_renderer();
+  /*!
+   * \brief time_series_renderer
+   */
   time_series_renderer(const float p_x_min, const float p_x_max, const float p_y_min, const float p_y_max);
   /*!
    * \brief add

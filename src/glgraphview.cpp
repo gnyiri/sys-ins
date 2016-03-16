@@ -70,44 +70,11 @@ void glgraphview::initializeGL()
   // get location of lightPos in the shader
   m_lightPosLoc = m_program->uniformLocation("lightPos");
 
-  m_vertices.push_back(-1.0);
-  m_vertices.push_back(0.0);
-  m_vertices.push_back(0.5);
-
-  //m_vertices.push_back(0.0);
-  //m_vertices.push_back(0.0);
-  //m_vertices.push_back(1.0);
-
-  m_vertices.push_back(1.0);
-  m_vertices.push_back(0.0);
-  m_vertices.push_back(0.5);
-
-  //m_vertices.push_back(0.0);
-  //m_vertices.push_back(0.0);
-  //m_vertices.push_back(1.0);
-
-  m_obuf.create();
-  m_obuf.bind();
-  m_obuf.allocate(m_vertices.data(), m_vertices.size() * sizeof(GLfloat));
-
-  setupVertexAttribs();
-
   m_camera.setToIdentity();
   m_camera.translate(0, 0, -1);
 
   m_program->setUniformValue(m_lightPosLoc, QVector3D(0, 0, 70));
   m_program->release();
-}
-//--------------------------------------------------
-void glgraphview::setupVertexAttribs()
-{
-  m_obuf.bind();
-  QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
-  f->glEnableVertexAttribArray(0);
-  //f->glEnableVertexAttribArray(1);
-  f->glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
-  //f->glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), reinterpret_cast<void *>(3 * sizeof(GLfloat)));
-  m_obuf.release();
 }
 //--------------------------------------------------
 void glgraphview::paintGL()
@@ -123,8 +90,6 @@ void glgraphview::paintGL()
   m_program->setUniformValue(m_mvMatrixLoc, m_camera * m_world);
   QMatrix3x3 normalMatrix = m_world.normalMatrix();
   m_program->setUniformValue(m_normalMatrixLoc, normalMatrix);
-
-  glDrawArrays(GL_LINES, 0, m_vertices.size() / 3);
 
   m_program->release();
 }

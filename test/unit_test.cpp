@@ -14,6 +14,9 @@ class sys_utils_test : public QObject
   Q_OBJECT
 
 public:
+  /*!
+   * \brief sys_utils_test
+   */
   sys_utils_test()
   {
   }
@@ -29,6 +32,9 @@ class proc_parser_test : public QObject
   Q_OBJECT
 
 public:
+  /*!
+   * \brief proc_parser_test
+   */
   proc_parser_test()
   {
   }
@@ -37,13 +43,16 @@ private Q_SLOTS:
   void test_parse_section();
 };
 /*!
- * \brief The time_series class
+ * \brief The time_series_test class
  */
 class time_series_test : public QObject
 {
   Q_OBJECT
 
 public:
+  /*!
+   * \brief time_series_test
+   */
   time_series_test()
   {
   }
@@ -51,7 +60,6 @@ public:
 private Q_SLOTS:
   void test_time_series();
 };
-
 //--------------------------------------------------------------
 void sys_utils_test::test_process_id_list()
 {
@@ -150,4 +158,4 @@ int main(int argc, char** argv)
   return status;
 }
 
-#include "tst_sys_utils_test.moc"
+#include "unit_test.moc"
