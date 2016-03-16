@@ -3,7 +3,6 @@
 
 #include "time_series.h"
 
-#include <QOpenGLFunctions>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 

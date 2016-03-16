@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += testlib core
+QT       += testlib core opengl
 
 QT       -= gui
 

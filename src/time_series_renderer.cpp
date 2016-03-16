@@ -1,5 +1,7 @@
 #include "time_series_renderer.h"
 
+#include <QOpenGLFunctions>
+
 //--------------------------------------------------
 time_series_renderer::time_series_renderer()
 {

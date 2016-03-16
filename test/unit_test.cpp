@@ -5,6 +5,7 @@
 #include "sys_utils.h"
 #include "proc_parser.h"
 #include "time_series.h"
+#include "time_series_renderer.h"
 
 /*!
  * \brief The sys_utils_test class
@@ -59,6 +60,24 @@ public:
 
 private Q_SLOTS:
   void test_time_series();
+};
+/*!
+ * \brief The time_series_test class
+ */
+class time_series_renderer_test : public QObject
+{
+  Q_OBJECT
+
+public:
+  /*!
+   * \brief time_series_test
+   */
+  time_series_renderer_test()
+  {
+  }
+
+private Q_SLOTS:
+  void test_time_series_renderer();
 };
 //--------------------------------------------------------------
 void sys_utils_test::test_process_id_list()
@@ -136,6 +155,19 @@ void time_series_test::test_time_series()
   QCOMPARE(l_time_series.get(199), 201u);
 }
 //--------------------------------------------------------------
+void time_series_renderer_test::test_time_series_renderer()
+{
+  time_series l_time_series_1(200);
+  time_series l_time_series_2(200);
+
+  time_series_renderer l_time_series_renderer;
+  l_time_series_renderer.add(l_time_series_1);
+  l_time_series_renderer.add(l_time_series_2);
+
+  QCOMPARE(400ul, l_time_series_renderer.get_size());
+}
+
+//--------------------------------------------------------------
 int main(int argc, char** argv)
 {
   int status = 0;
@@ -152,6 +184,11 @@ int main(int argc, char** argv)
 
   {
     time_series_test l_test;
+    status |= QTest::qExec(&l_test, argc, argv);
+  }
+
+  {
+    time_series_renderer_test l_test;
     status |= QTest::qExec(&l_test, argc, argv);
   }
 
